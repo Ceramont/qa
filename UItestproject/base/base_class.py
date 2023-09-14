@@ -1,3 +1,4 @@
+import datetime
 
 
 class Base():
@@ -11,8 +12,21 @@ class Base():
         get_url = self.driver.current_url
         print(f"Current url {get_url}")
 
-    """Method Assert"""
+    """Method word Assert"""
     def assert_word(self, value, expected):
         value_word = value.text
         assert value_word == expected
         print("Value succeed")
+
+    """Method Screenshot"""
+    def screenshot(self):
+        now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
+        name_screenshot = f'screenshot_{now_date}.png'
+        self.driver.save_screenshot(
+            'C:\\Users\\Солнышко\\Desktop\\qa-test\\UItestproject\\screenshots\\' + name_screenshot)
+
+    """Method assert URL"""
+    def assert_url(self, result):
+        get_url = self.driver.current_url
+        assert get_url == result
+        print("Good value URL")
