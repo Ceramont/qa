@@ -5,7 +5,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from pages.cart_page import Cart_page
+from pages.client_info_page import Client_info
 from pages.login_page import Login
+from pages.main_page import Main_page
 
 
 def test_select_product():
@@ -15,12 +18,19 @@ def test_select_product():
     g = Service()
     driver = webdriver.Chrome(options=options, service=g)
     print("Start Test")
+
     login = Login(driver)
     login.authorization()
-    WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//a [@class='shopping_cart_link']"))).click()
-    print("Enter Cart")
 
+    main_page = Main_page(driver)
+    main_page.select_product()
+
+    print("Enter Cart")
+    cp = Cart_page(driver)
+    cp.product_confirm()
+
+    cip = Client_info(driver)
+    cip.input_info()
 
 
 
