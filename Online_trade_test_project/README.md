@@ -21,5 +21,8 @@
 Перед использование в файле ``base_class.py`` необходимо заменить путь 
 ```'your_path_to_dir\\Online_trade_test_project\\screenshots'``` на  собственный путь до папки проекта 
 ~~~~~~~~~~~~~
+pip install -r requirements.txt
+~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 python -m pytest -s -v 
 ~~~~~~~~~~~~~ 
