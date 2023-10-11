@@ -51,10 +51,14 @@ class Main_page(Base):
         self.driver.get(self.url)
         self.driver.maximize_window()
         self.get_current_url()
-        if self.get_unblock_button() is not None:
+        try:
+            self.get_unblock_button()
             self.click_unblock_button()
-        self.click_cat_menu()
-        self.click_smartphone()
+        except Exception:
+            self.click_cat_menu()
+            self.click_smartphone()
+
+
 
 
 
