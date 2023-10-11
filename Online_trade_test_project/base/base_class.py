@@ -6,7 +6,6 @@ class Base():
     def __init__(self, driver):
         self.driver = driver
 
-
     """Method Get Current URL"""
     def get_current_url(self):
         get_url = self.driver.current_url
@@ -23,7 +22,7 @@ class Base():
         now_date = datetime.datetime.utcnow().strftime("%Y.%m.%d.%H.%M.%S")
         name_screenshot = f'screenshot_{now_date}.png'
         self.driver.save_screenshot(
-            '..\\screenshots\\' + name_screenshot)
+            'your_path_to_dir\\Online_trade_test_project\\screenshots' + name_screenshot)
 
     """Method assert URL"""
     def assert_url(self, result):
