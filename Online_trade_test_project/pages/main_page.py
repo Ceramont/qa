@@ -10,12 +10,12 @@ class Main_page(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
 
     # Locators
     unblock_button = "//input[@id='otv3_submit']"
-    catalog_menu = "//div[@id='main_area']/div[2]/div/div/div[2]/a[1]"
-    catalog_menu_smartphone = "//ul[@id='ssCM_2325_ID']/li[1]/a"
+    catalog_menu = "//a[@title='Каталог товаров']"
+    catalog_menu_smartphone = "//a[@href='/catalogue/smartfony-c13/']"
+    cookie_submit = "//a[@class = 'button button__blue js__cookiePanel__button']"
 
     # Getters
     def get_unblock_button(self):
@@ -30,10 +30,11 @@ class Main_page(Base):
         return WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.catalog_menu_smartphone)))
 
+    def get_cookie_submit(self):
+        return WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.cookie_submit)))
+
     # Actions
-    # def input_password(self, password):
-    #     self.get_password().send_keys(password)
-    #     print("Input password")
 
     def click_unblock_button(self):
         self.get_unblock_button().click()
@@ -47,6 +48,10 @@ class Main_page(Base):
         self.get_smartphone().click()
         print("Click Catalog menu Smartphone Button")
 
+    def click_cookie_submit(self):
+        self.get_cookie_submit().click()
+        print("Click Ccookie submit Button")
+
     def get_main_page(self):
         self.driver.get(self.url)
         self.driver.maximize_window()
@@ -55,6 +60,7 @@ class Main_page(Base):
             self.get_unblock_button()
             self.click_unblock_button()
         except Exception:
+            self.click_cookie_submit()
             self.click_cat_menu()
             self.click_smartphone()
 

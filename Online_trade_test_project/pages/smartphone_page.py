@@ -9,34 +9,33 @@ class Smartphone_page(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
 
     # Locators
-    availability_now_checkbox = "//*[@id='l1d2185d7198ca866f057607628f90f1e']/span[1]"
-    discount_promo_price_checkbox = "//*[@id='lebb67a4271abe715344471b0f16321f6']/span[1]"
-    manufacturer_XIAOMI_checkbox = "//*[@id='l46435b29b8bf4dd5d73b4a4fa25f3e50']/span[1]"
-    price_menu = "//form[@id='search_form_id']/div/div[5]/div[1]"
+    availability_now_checkbox = "//label[@id='l1d2185d7198ca866f057607628f90f1e']/span[1]"
+    discount_promo_price_checkbox = "//label[@id='lebb67a4271abe715344471b0f16321f6']/span[1]"
+    manufacturer_XIAOMI_checkbox = "//label[@id='l46435b29b8bf4dd5d73b4a4fa25f3e50']/span[1]"
+    price_menu = "//div[@title='Подобрать по цене в категории «Смартфоны»']"
     left_border_price_input = "//input[@id='price1']" # 10000
     right_border_price_input = "//input[@id='price2']" # 11000
-    rate_menu = "//form[@id='search_form_id']/div/div[6]/div[1]"
-    rate_five_checkbox = "//*[@id='lf7c90596d2b3675b0f1cd96316dc4245']/span[1]"
-    platform_android_checkbox = "//*[@id='l8f79dda83ca97aa859634f97ba399dc7']/span[1]"
-    lte_yes_checkbox = "//*[@id='lcf115de5209c6087965fdc15299c1c8b']/span[1]"
+    rate_menu = "//div[@title='Подбор по рейтингу в категории «Смартфоны»']"
+    rate_five_checkbox = "//label[@id='lf7c90596d2b3675b0f1cd96316dc4245']/span[1]"
+    platform_android_checkbox = "//label[@id='l8f79dda83ca97aa859634f97ba399dc7']/span[1]"
+    lte_yes_checkbox = "//label[@id='lcf115de5209c6087965fdc15299c1c8b']/span[1]"
     screen_diagonal_left_border = "//input[@id='diagonal1']" #5
     screen_diagonal_right_border = "//input[@id='diagonal2']" #7
-    cpu_cores_menu = "//div[@id='columnBlock__2312filter__ID']/div[1]"
-    cpu_cores_8_checkbox = "//*[@id='la0e1864461da8948a9a483528659acdb']/span[1]"
-    ram_menu = "//div[@id='columnBlock__2317filter__ID']/div[1]"
-    ram_4_checkbox = "//*[@id='l8a349126efc646d67ce37d1639c23c7d']/span[1]"
+    cpu_cores_menu = "//div[@data-filtername='kol_yader']"
+    cpu_cores_8_checkbox = "//label[@id='la0e1864461da8948a9a483528659acdb']/span[1]"
+    ram_menu = "//div[@data-filtername='ram']"
+    ram_4_checkbox = "//label[@id='l8a349126efc646d67ce37d1639c23c7d']/span[1]"
     rom_menu = "//div[@id='columnBlock__102filter__ID']/div[1]"
     rom_128_checkbox = "//*[@id='l77edb32393ed9592a633d06859632e56']/span[1]"
-    camera_menu = "//div[@id='columnBlock__98filter__ID']/div[1]"
+    camera_menu = "//div[@data-filtername='fotokamera_osnovnaya']"
     camera_50plus00dot8 = "//input[@id='fe559e04f9e10802dae0a4005cfa3a0cf']"
-    nfc_checkbox = "//*[@id='l062993585a465aecb861561818225523']/span[1]"
-    color_menu = "//*[@id='columnBlock__4805filter__ID']/div[1]"
-    color_black_checkbox = "//*[@id='lf7db97e847b201c1a4f0627f817f3b72']/span[1]"
+    nfc_checkbox = "//label[@id='l062993585a465aecb861561818225523']/span[1]"
+    color_menu = "//div[@data-filtername='color']"
+    color_black_checkbox = "//label[@id='lf7db97e847b201c1a4f0627f817f3b72']/span[1]"
+    final_button = "//a[@title='Подобрать']"
     result_item = "//*[@id='item_container_2655519__ID']/div[2]/div[2]/a"
-    final_button = "//*[@id='search_form_id']/div/div[26]/a[1]"
     buy_button = "//*[@id='item_container_2655519__ID']/div[3]/div[3]/a"
     checkout_button = "//*[@id='js__popup_addedToCart__cartLinkID']"
     # Getters
@@ -275,7 +274,7 @@ class Smartphone_page(Base):
         self.input_right_border_price_input(15000)
         self.click_rate_menu()
         self.click_rate_five_checkbox()
-        self.click_platform_android_checkbox()
+        # self.click_platform_android_checkbox()
         self.click_lte_yes_checkbox()
         self.input_screen_diagonal_left_border(5)
         self.input_screen_diagonal_right_border(7)

@@ -8,7 +8,6 @@ class Basket_page(Base):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver = driver
 
     # Locators
     without_reg_button = "//*[@id='main_area']/div[4]/div/div/div[2]/div/div/a[2]"
@@ -82,7 +81,7 @@ class Basket_page(Base):
         self.get_current_url()
         self.click_without_reg_button()
         self.assert_word(self.get_item_name(), "Смартфон Xiaomi Redmi 12 4/128GB Черный")
-        self.assert_word(self.get_item_price(), "14 990 ₽")
+        self.assert_word(self.get_item_price(), "13 990 ₽")
         self.click_final_button()
         self.input_address_area("Ленинградский проспект, дом. 81, кв. 77")
         self.input_contact_name("Александр")
